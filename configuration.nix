@@ -108,7 +108,6 @@
   kitty
   neovim
   spotify
-  betterdiscord-installer
   jetbrains-toolbox
   vscode
   popcorntime
