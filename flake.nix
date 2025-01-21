@@ -20,11 +20,5 @@ outputs = {self, nixpkgs, home-manager, ...}:
             };
         };
 
-    homeConfigurations = {
-        theokiwi = home-manager.lib.homeManagerConfiguration{
-            inherit pkgs;
-            modules = [ ./home.nix];
-            };
-        };
     };
 }

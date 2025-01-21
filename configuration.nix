@@ -114,6 +114,8 @@
   obsidian
   pavucontrol
   gitkraken
+  gh
+  fish
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
