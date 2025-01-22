@@ -37,16 +37,17 @@
     LC_TIME = "pt_BR.UTF-8";
   };
 
-  #x11
-  services.xserver.enable = true;
+ services.xserver = {
+  enable = true;
+  displayManager.gdm.enable = true;
+  desktopManager.gnome.enable = true;
 
-  #DE
-  services.xserver.desktopManager.gnome.enable = true;
-
-  services.xserver.xkb = {
+  xkb = {
     layout = "br";
     variant = "";
   };
+};
+
 
   console.keyMap = "br-abnt2";
 
@@ -96,6 +97,9 @@
       nerdfonts
       fish
       fastfetch
+      gtk4
+      gtk3
+      gnumake
   ];
 
   system.stateVersion = "24.11";
@@ -110,4 +114,6 @@ environment.sessionVariables = {
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+ #Intel 12Gen Fix
+  	boot.kernelParams = [ "i915.force_probe=<4626>" ];
 }
