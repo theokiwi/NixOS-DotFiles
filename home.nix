@@ -7,15 +7,18 @@
 
   home.stateVersion = "24.11";
 
-  home.packages = [
-
+  home.packages = with pkgs; [
+	discord
+	
+	neovim
+	gitkraken
+	vscode
   ];
 
 
   home.file = {
 
   };
-
 
   home.sessionVariables = {
     BROWSER = "firefox";
@@ -33,4 +36,6 @@
       init.defaultBranch = "main";
     };
   };
+  
+  xdg.enable = true;
 }

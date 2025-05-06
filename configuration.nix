@@ -69,8 +69,6 @@
     description = "Theo Diniz Viana";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
     ];
   };
 
@@ -80,26 +78,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-      vim
-      wget
-      pkgs.lshw
       git
-      discord
-      kitty
-      neovim
-      spotify
-      jetbrains-toolbox
-      vscode
-      popcorntime
-      obsidian
-      pavucontrol
-      gitkraken
-      nerdfonts
-      fish
-      fastfetch
-      gtk4
-      gtk3
-      gnumake
   ];
 
   system.stateVersion = "24.11";
