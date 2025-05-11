@@ -15,7 +15,7 @@
 	neovim
 	gitkraken
 	vscode
-	gaw
+	gtkwave
 	
 	
   ];
