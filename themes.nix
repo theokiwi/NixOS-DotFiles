@@ -13,6 +13,7 @@ in
     cursorTheme
     shellTheme
     pkgs.gnomeExtensions.user-themes
+    pkgs.conky
   ];
 
   gtk = {

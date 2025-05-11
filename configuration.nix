@@ -121,7 +121,4 @@ programs.nautilus-open-any-terminal = {
       vpl-gpu-rt         
     ];
   };
-  
-  #lockscreen
- environment.etc."gdm/greeter/background.jpg".source = ./Wallpapers/totk.jpg;
 }
