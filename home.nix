@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./themes.nix
+  ];
 
   home.username = "theokiwi";
   home.homeDirectory = "/home/theokiwi";
