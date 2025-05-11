@@ -2,30 +2,31 @@
 
 let
   gtkTheme    = pkgs.whitesur-gtk-theme;
-  iconTheme   = pkgs.whitesur-icon-theme;       
+  iconTheme   = pkgs.whitesur-icon-theme;
   cursorTheme = pkgs.capitaine-cursors;
   shellTheme  = pkgs.marble-shell-theme;
-in {
+in
+{
   home.packages = [
     gtkTheme
     iconTheme
     cursorTheme
     shellTheme
-    pkgs.gnomeExtensions.user-themes  
+    pkgs.gnomeExtensions.user-themes
   ];
 
   gtk = {
     enable = true;
     theme = {
-      name = "WhiteSur-Dark";                   
+      name = "WhiteSur-Dark";
       package = gtkTheme;
     };
     iconTheme = {
-      name = "WhiteSur";                        
+      name = "WhiteSur";
       package = iconTheme;
     };
     cursorTheme = {
-      name = "capitaine-cursors";               
+      name = "capitaine-cursors";
       package = cursorTheme;
       size = 24;
     };
@@ -33,13 +34,7 @@ in {
 
   dconf.settings = {
     "org/gnome/shell/extensions/user-theme" = {
-      name = "Marble";                          
+      name = "WhiteSur-Dark";
     };
-    "org/gnome/desktop/interface" = {
-      gtk-theme = "WhiteSur-Dark";              
-      icon-theme = "WhiteSur";                
-      cursor-theme = "capitaine-cursors";       
-      cursor-size = 24;
     };
-  };
 }

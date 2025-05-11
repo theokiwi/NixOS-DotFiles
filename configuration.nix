@@ -122,4 +122,6 @@ programs.nautilus-open-any-terminal = {
     ];
   };
   
+  #lockscreen
+ environment.etc."gdm/greeter/background.jpg".source = ./Wallpapers/totk.jpg;
 }
