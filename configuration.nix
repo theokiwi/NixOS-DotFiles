@@ -82,6 +82,9 @@
   environment.systemPackages = with pkgs; [
       git
       pciutils
+      nautilus
+      nautilus-python
+      nautilus-open-any-terminal
   ];
 
   system.stateVersion = "24.11";
@@ -89,7 +92,13 @@
 
 environment.sessionVariables = {
   BROWSER = "firefox";
-  TERMINAL = "kitty";
+  TERMINAL = "alacritty";
+};
+
+#Open Alacritty in Nautilus
+programs.nautilus-open-any-terminal = {
+  enable = true;
+  terminal = "alacritty";
 };
 
  #Flakes

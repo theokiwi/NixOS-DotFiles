@@ -12,22 +12,25 @@
 	
 	chromium
 	
+	logisim
 	neovim
 	gitkraken
 	vscode
 	gtkwave
 	
 	
+	alacritty
+	alacritty-theme
   ];
 
 
   home.file = {
 
   };
-
-  home.sessionVariables = {
+    programs.alacritty.enable = true;
+    home.sessionVariables = {
     BROWSER = "firefox";
-    TERMINAL = "kitty";
+    TERMINAL = "alacritty";
   };
 
   programs.home-manager.enable = true;
@@ -44,3 +47,5 @@
   
   xdg.enable = true;
 }
+
+
