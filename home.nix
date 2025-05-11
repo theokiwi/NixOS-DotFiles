@@ -23,19 +23,10 @@ in
     alacritty
     alacritty-theme
     conky
+    jq
+    bash
+    curl
   ];
-
-  home.file = {
-    ".config/conky/grumicela".source = conkyGrumicela;
-
-    ".config/autostart/conky.desktop".text = ''
-      [Desktop Entry]
-      Type=Application
-      Name=Conky-Grumicela
-      Exec=conky -c $HOME/.config/conky/grumicela/grumicela.conf
-      X-GNOME-Autostart-enabled=true
-    '';
-  };
 
   programs.alacritty.enable = true;
 
@@ -56,4 +47,22 @@ in
   };
 
   xdg.enable = true;
+  
+  #Conky
+  home.file."start_conky.sh".source = ./Resources/start_conky.sh;
+  systemd.user.services.start-conky = {
+  Unit = {
+    Description = "Delayed start for Conky";
+    After = [ "graphical-session.target" ];  # assegura que espere o ambiente gráfico
+  };
+  Service = {
+    ExecStart = "${config.home.homeDirectory}/start_conky.sh";
+    Restart = "on-failure";
+  };
+  Install = {
+    WantedBy = [ "default.target" ];
+  };
+};
 }
+
+
