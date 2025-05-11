@@ -35,6 +35,10 @@ in
     nix-zsh-completions
     zsh-autosuggestions
     neovim
+    oh-my-zsh
+    curl
+    wget
+    
   ];
 
   programs.alacritty.enable = true;
