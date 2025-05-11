@@ -1,9 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 killall conky
 sleep 2s
-		
-conky -c $HOME/.config/conky/grumicela/Celaeno.conf &> /dev/null &
-conky -c $HOME/.config/conky/grumicela/Grumium2.conf &> /dev/null &
+
+# Descobrir o diretório do próprio script, para rodar dali
+DIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$DIR"
+
+conky -c ./Celaeno.conf &> /dev/null &
+conky -c ./Grumium2.conf &> /dev/null &
 
 exit

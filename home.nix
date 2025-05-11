@@ -26,6 +26,8 @@ in
     jq
     bash
     curl
+    google-fonts
+    nerdfonts
   ];
 
   programs.alacritty.enable = true;
@@ -46,23 +48,18 @@ in
     };
   };
 
+  # Ativa a integração com o XDG Autostart
   xdg.enable = true;
-  
-  #Conky
-  home.file."start_conky.sh".source = ./Resources/start_conky.sh;
-  systemd.user.services.start-conky = {
-  Unit = {
-    Description = "Delayed start for Conky";
-    After = [ "graphical-session.target" ];  # assegura que espere o ambiente gráfico
-  };
-  Service = {
-    ExecStart = "${config.home.homeDirectory}/start_conky.sh";
-    Restart = "on-failure";
-  };
-  Install = {
-    WantedBy = [ "default.target" ];
-  };
-};
+
+  # Cria o arquivo de autostart
+  home.file.".config/autostart/conky.desktop".text = ''
+  [Desktop Entry]
+  Type=Application
+  Exec=bash -c "sleep 5 && bash $HOME/Documents/dotfiles/Resources/Conky/grumicela/start.sh"
+  Hidden=false
+  NoDisplay=false
+  X-GNOME-Autostart-enabled=true
+  Name=Conky AutoStart
+  Comment=Inicia o Conky automaticamente com a config Celaeno
+  '';
 }
-
-
