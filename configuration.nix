@@ -70,6 +70,7 @@
     isNormalUser = true;
     description = "Theo Diniz Viana";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [
     ];
   };
@@ -121,4 +122,7 @@ programs.nautilus-open-any-terminal = {
       vpl-gpu-rt         
     ];
   };
+  
+  #zsh
+  programs.zsh.enable = true;
 }

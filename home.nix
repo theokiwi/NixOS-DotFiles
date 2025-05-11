@@ -28,6 +28,13 @@ in
     curl
     google-fonts
     nerdfonts
+    zsh
+    zinit
+    fzf
+    zoxide
+    nix-zsh-completions
+    zsh-autosuggestions
+    neovim
   ];
 
   programs.alacritty.enable = true;
@@ -47,19 +54,23 @@ in
       init.defaultBranch = "main";
     };
   };
-
+      
   # Ativa a integração com o XDG Autostart
   xdg.enable = true;
-
+  
   # Cria o arquivo de autostart
   home.file.".config/autostart/conky.desktop".text = ''
   [Desktop Entry]
   Type=Application
-  Exec=bash -c "sleep 5 && bash $HOME/Documents/dotfiles/Resources/Conky/grumicela/start.sh"
+  Exec=zsh -c "sleep 5 && bash $HOME/Documents/dotfiles/Resources/Conky/grumicela/start.sh"
   Hidden=false
   NoDisplay=false
   X-GNOME-Autostart-enabled=true
   Name=Conky AutoStart
   Comment=Inicia o Conky automaticamente com a config Celaeno
   '';
+  
+  #Sourcing external configs
+  home.file.".zshrc".source = ./zshrc.conf;
+  home.file.".config/alacritty/alacritty.toml".source = ./alacritty.toml;
 }

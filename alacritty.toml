@@ -1,0 +1,61 @@
+# Alacritty - Configuration Boilerplate
+# For full documentation and more options, visit:
+# https://alacritty.org/config-alacritty.html
+
+[window]
+# Window dimensions (changes require restart)
+dimensions = { columns = 120, lines = 30 }
+# Window padding (px)
+padding = { x = 8, y = 8 }
+# Start window maximized?
+# startup_mode = "Maximized"
+# Window decorations: "full", "none"
+decorations = "full"
+
+[font]
+# Normal font face
+normal = { family = "FiraMono Nerd Font", style = "Regular" }
+# Bold font face
+bold = { family = "FiraMono Nerd Font", style = "Bold" }
+# Italic font face
+italic = { family = "FiraMono Nerd Font", style = "Italic" }
+# Font size (points)
+size = 11.0
+
+[colors]
+# Use built-in color schemes or customize your own
+[colors.primary]
+background = "#1E1E2E"
+foreground = "#F5F5F5"
+
+[selection]
+# When set to 'true', selected text will be copied to the primary clipboard.
+save_to_clipboard = true
+
+[cursor]
+style = "Block"    # Other values: "Beam", "Underline"
+vi_mode_style = "Block"
+
+
+[terminal.shell]
+# The command to run on startup. Use ["program", "arg1", "arg2"] array format.
+program = "/run/current-system/sw/bin/zsh"
+# args = ["--login"]
+
+[keyboard]
+# Example key binding
+[[keyboard.bindings]]
+key = "V"
+mods = "Control|Shift"
+action = "Paste"
+
+[terminal]
+
+# Add more bindings as needed
+
+# Uncomment and modify as appropriate for your preferences and system.
+
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/challenger_deep.toml"
+]
