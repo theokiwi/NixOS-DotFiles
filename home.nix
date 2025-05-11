@@ -10,9 +10,14 @@
   home.packages = with pkgs; [
 	discord
 	
+	chromium
+	
 	neovim
 	gitkraken
 	vscode
+	gaw
+	
+	
   ];
 
 

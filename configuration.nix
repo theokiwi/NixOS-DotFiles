@@ -41,7 +41,9 @@
   enable = true;
   displayManager.gdm.enable = true;
   desktopManager.gnome.enable = true;
-
+  displayManager.gdm.wayland = false;
+  videoDrivers = ["nvidia"];
+  
   xkb = {
     layout = "br";
     variant = "";
@@ -79,6 +81,7 @@
 
   environment.systemPackages = with pkgs; [
       git
+      pciutils
   ];
 
   system.stateVersion = "24.11";
@@ -93,6 +96,21 @@ environment.sessionVariables = {
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
- #Intel 12Gen Fix
-  	boot.kernelParams = [ "i915.force_probe=<4626>" ];
+ #Stop from sleeping
+  systemd.targets.sleep.enable = false;
+  systemd.targets.suspend.enable = false;
+  systemd.targets.hibernate.enable = false;
+  systemd.targets.hybrid-sleep.enable = false;
+  
+  #Intel Fix -> Allow built-in monitor
+  boot.kernelParams = [
+    "i915.force_probe=<46a6>"
+  ];
+    hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      vpl-gpu-rt         
+    ];
+  };
+  
 }

@@ -8,7 +8,7 @@
   hardware.graphics.enable = true;
 
   # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
 
     # Modesetting is required.
@@ -41,6 +41,7 @@
 		# Make sure to use the correct Bus ID values for your system!
 		  intelBusId = "PCI:0:2:0";
 		  nvidiaBusId = "PCI:1:0:0";
+      		  sync.enable = true; 
 	};
 
   };
